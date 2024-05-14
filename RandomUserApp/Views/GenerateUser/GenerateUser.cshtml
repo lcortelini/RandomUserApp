@@ -40,7 +40,7 @@
 			</div>
 			<div class="col-12 mb-2">
 				<label asp-for="PostCode" class="mb-1">CEP:</label>
-				<input asp-for="PostCode" type="text" class="form-control" />
+				<input asp-for="PostCode" type="number" class="form-control" />
 				<span asp-validation-for="PostCode" class="text-danger"></span>
 			</div>
 			<div class="col-12 mb-2">
@@ -50,10 +50,15 @@
 			</div>
 			<div class="col-12 mb-2">
 				<label asp-for="Gender" class="mb-1">Gênero:</label>
-				<select name="genero" class="form-control" asp-for="Gender" disabled>
-					<option value="Female">Feminino</option>
-					<option value="Male">Masculino</option>
-				</select>
+				<input asp-for="Gender" type="hidden"/>
+				@if (Model.Gender == RandomUserApp.Utilities.Gender.Male)
+				{
+					<input type="text" class="form-control" value="Masculino" disabled/>
+				}
+				else
+				{
+					<input type="text" class="form-control" value="Feminino" disabled/>
+				}
 				<span asp-validation-for="Gender" class="text-danger"></span>
 			</div>
 

@@ -76,7 +76,7 @@ namespace RandomUserApp.Controllers
                 }
                 else
                 {
-                    ViewBag.Saved = false;
+                    ViewBag.UserGenerated = true;
                     return View("GenerateUser", person);
                 }
             }
@@ -101,6 +101,7 @@ namespace RandomUserApp.Controllers
                 }
                 else
                 {
+                    ViewBag.Update = true;
                     return View("GenerateUser", person);
                 }
             }

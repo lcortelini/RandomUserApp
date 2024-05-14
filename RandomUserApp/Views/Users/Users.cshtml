@@ -56,7 +56,11 @@
 						<p class="">@Html.DisplayFor(modelItem => item.Address)</p>
 					</td>
 					<td class="td-big">
-						<p class="">@Html.DisplayFor(modelItem => item.Gender)</p>
+						@if (item.Gender == RandomUserApp.Utilities.Gender.Male) {
+							<p class="">Masculino</p>
+						} else {
+							<p class="">Feminino</p>
+						}
 					</td>
 					<td>
 						@{

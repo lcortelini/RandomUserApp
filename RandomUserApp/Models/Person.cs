@@ -1,6 +1,5 @@
 ﻿using RandomUserApp.Utilities;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace RandomUserApp.Models
 {
@@ -16,6 +15,7 @@ namespace RandomUserApp.Models
         public string LastName { get; set; }
 
         [Required(ErrorMessage = "O CEP do usuário é obrigatório")]
+        [Range(1, 999999999, ErrorMessage = "Formato do CEP é inválido")]
         public int PostCode { get; set; }
 
         [Required(ErrorMessage = "Endereço é um campo obrigatório")]
