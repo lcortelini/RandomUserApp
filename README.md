@@ -1,4 +1,7 @@
 # Random User App
+
+Uma aplicação que consome a API Random User para criar usuários aleatórios e os salvar em um banco de dados PostgreSQL. Os dados dos usuários criados podem ser manipulados.
+
 #### Instruções para instalação:
 
 - Clone o repositório do GitHub;
