@@ -17,7 +17,18 @@ namespace RandomUserApp.Data
             options.UseNpgsql(Configuration.GetConnectionString("WebAppDatabase"));
         }
 
-        public DbSet<Person> Person { get; set; }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<APPConfiguration>().HasData(
+                new APPConfiguration
+                {
+                    ID = 1,
+                    BaseAddress = "https://api.randomuser.me",
+                    ApiURL = "https://randomuser.me/api/"
+                });
+        }
 
+        public DbSet<Person> Person { get; set; }
+        public DbSet<APPConfiguration> APPConfiguration { get; set; }
     }
 }

@@ -1,0 +1,89 @@
+﻿@model IEnumerable<RandomUserApp.Models.Person>
+
+@{
+	ViewData["Title"] = "Consultar";
+}
+
+<h1 class="text-center">Consultar Usuários</h1>
+
+<div class="row">
+	@if (ViewBag.ErrorMessage != null)
+	{
+		<div class="alert alert-warning text-center mt-3" role="alert">
+			@ViewBag.ErrorMessage
+		</div>
+	}
+	<table class="table table-borderless">
+		<thead>
+			<tr>
+				<th>
+				</th>
+				<th>
+					Nome
+				</th>
+				<th>
+					Sobrenome
+				</th>
+				<th>
+					Cep
+				</th>
+				<th>
+					Endereço
+				</th>
+				<th>
+					Gênero
+				</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var item in Model)
+			{
+				<tr>
+					<td>
+						<img class="profile-picture" src="@Url.Content(item.Image)" alt="Image" />
+					</td>
+					<td class="td-big">
+						<p class="">@Html.DisplayFor(modelItem => item.FirstName)</p>
+					</td>
+					<td class="td-big">
+						<p class="">@Html.DisplayFor(modelItem => item.LastName)</p>
+					</td>
+					<td class="td-big">
+						<p class="">@Html.DisplayFor(modelItem => item.PostCode)</p>
+					</td>
+					<td class="td-big">
+						<p class="">@Html.DisplayFor(modelItem => item.Address)</p>
+					</td>
+					<td class="td-big">
+						<p class="">@Html.DisplayFor(modelItem => item.Gender)</p>
+					</td>
+					<td>
+						@{
+							@Html.ActionLink("Editar", "Edit", new {  id=item.ID }, new { @class = "btn btn-secondary me-3 mt-3"})
+							@Html.ActionLink("Apagar", "Delete", new {  id=item.ID }, new { @class = "btn btn-danger mt-3" })
+						}
+					</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+</div>
+
+
+<style>
+	.profile-picture {
+		height: 75px;
+		width: 75px;
+		border-radius: 50%;
+	}
+
+	.td-big {
+		margin-top: 10px;
+		height: 80px;
+	}
+
+		.td-big p {
+			margin-top: 20px;
+		}
+</style>
